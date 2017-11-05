@@ -27,6 +27,14 @@ Now your pfsense box will send its logs to fluentd on for 5142
 
 2. Setup EFK to listen and receive on 5142
 
+First lets install a couple plugins so this will work.
+
+Fluentd is extensible and we will need these two plugins for this to work
+```
+fluent-gem install fluent-plugin-rewrite-tag-filter
+fluent-gem install fluent-plugin-parser
+```
+
 We are going to tell fluentd to listen on port 5142 for syslog formatted messages.
 We are also going to tag these messages with pfsense.messages. (pick whatever you want here)
 ```
